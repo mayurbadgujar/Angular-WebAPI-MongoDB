@@ -5,4 +5,6 @@ export class Employee {
     Address: string;
     City: string;
     Country: string;
+    Gender: string;
+    DOB: Date;
 }

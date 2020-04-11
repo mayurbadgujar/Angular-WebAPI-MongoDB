@@ -17,6 +17,21 @@
                                         <input type="text" class="form-control" placeholder="Enter Name" formControlName="Name">
                                     </div>
                                 </div>
+                                <div class="form-body">
+                                    <label class="col-sm-2 control-label" for="Gender">Gender</label>
+                                    <mat-radio-group class="tp-radio-group" formControlName="Gender" for="Gender">
+                                        <mat-radio-button class="tp-radio-button" value="Male">Male</mat-radio-button>&nbsp; 
+                                        <mat-radio-button class="tp-radio-button" value="Female">Female</mat-radio-button>
+                                    </mat-radio-group>
+                                </div>
+                                <div class="form-body">
+                                    <label class="col-sm-2 contol-label" for="DOB">DOB</label>                                    
+                                        <mat-form-field>
+                                            <input matInput [matDatepicker]="DOB" placeholder="Choose a date" formControlName="DOB">
+                                            <mat-datepicker-toggle matSuffix [for]="DOB"></mat-datepicker-toggle>
+                                            <mat-datepicker #DOB></mat-datepicker>
+                                        </mat-form-field>                                    
+                                </div>
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label" for="Department">Department</label>
                                     <div class="col-sm-10">
@@ -44,7 +59,10 @@
                             </div>                            
                         </div>
                         <div class="col-6 text-right">
-                            <button class="btn btn-primary px-10" type="submit">Add</button>
+                            <button class="btn btn-primary px-10" type="submit">Add</button>&nbsp;
+                            <button type="button" class="btn btn-secondary" data-toggle="model" (click)="btnCancel()">
+                                Cancel
+                            </button>
                         </div>
                     </form>
                 </div>

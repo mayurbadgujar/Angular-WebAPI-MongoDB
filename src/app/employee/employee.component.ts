@@ -18,13 +18,11 @@ dataSaved=false;
   constructor(private router:Router,private empservice:EmpserviceService) { }
   laodEmployee()
   {    
-    this.emp=this.empservice.GetEmployeeRecord();
-    console.log(this.emp);
+    this.emp=this.empservice.GetEmployeeRecord();    
   }
 
   EmployeeEdit(id:string)
   {
-    console.log(id);
     localStorage.removeItem("id");
     localStorage.setItem("id",id.toString());
     this.router.navigate(['/addemployee'],{queryParams:{Id:id}});
@@ -38,8 +36,9 @@ dataSaved=false;
       {
         this.dataSaved=true;
         this.message="Deleted Successfully!";
-      });
+      });      
     }
+    this.laodEmployee();
   }
   
   ngOnInit() {

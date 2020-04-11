@@ -12,6 +12,7 @@ Url="https://localhost:44367/Api/Emp";
 
   InsertEmployee(employee:Employee)
   {
+    console.log(employee);
     const httpOptions ={headers:new HttpHeaders({'content-Type':'application/json'})};
     return  this.http.post<Employee[]>(this.Url+'/AddEmployee',employee,httpOptions)
   }
@@ -22,14 +23,12 @@ Url="https://localhost:44367/Api/Emp";
   }
 
   DeleteEmployee(id:string):Observable<number>
-  {
-    debugger;
+  {    
     return this.http.get<number>(this.Url+'/Delete/?id='+id);
   }
 
   GetEmployeeById(id:string)
   {
-    debugger;
     return this.http.get<Employee>(this.Url+'/GetEmployeeById/?id='+id);
   }
 

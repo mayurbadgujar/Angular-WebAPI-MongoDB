@@ -4,12 +4,15 @@
             Employee's Information
         </div>
     </div>
+    <!-- <div class="alert alert-success" role="alert">
+        {{message}}
+    </div> -->
     <div class="col-sm-12" style="margin-bottom:20px;padding-top:20px;">
         <div class="row">
             <div class="col-sm-6">
                 <button type="button" class="btn btn-primary" data-toggle="model" routerLink="/addemployee">
                     Add New Employee
-                </button>
+                </button>                
             </div>
             <div class="col-sm-6">
                 <input type="text" class="form-control" name="search" [(ngModel)]="filter" placeholder="Search">
@@ -21,6 +24,8 @@
 <table class="table table-striped">
     <thead class="thead-dark">
         <th>Name</th>
+        <th>Gender</th>
+        <th>DOB</th>
         <th>Department</th>       
         <th>Address</th>
         <th>Country</th>
@@ -28,8 +33,10 @@
         <th>Action</th>
     </thead>
     <tbody>
-        <tr *ngFor="let e of emp |async|filter:filter| paginate:{itemsPerPage:5,currentPage:P}; let i=index">
+        <tr *ngFor="let e of emp |async|filter:filter| paginate:{itemsPerPage:2,currentPage:P}; let i=index">
             <td>{{e.Name}}</td>
+            <td>{{e.Gender}}</td>
+            <td>{{e.DOB| date:"dd-MMM-y"}}</td>
             <td>{{e.Department}}</td>
             <td>{{e.Address}}</td>
             <td>{{e.Country}}</td>
@@ -37,7 +44,7 @@
             <td>
                 <div class="btn-group">
                     <button type="buttton" class="btn btn-primary mr-1" (click)="EmployeeEdit(e.Id)">Edit</button>
-                    <button type="button" class="btn btn-danger mr-1" (clic)="DeleteEmployee(e.Id)">Delete</button>
+                    <button type="button" class="btn btn-danger mr-1" (click)="DeleteEmployee(e.Id)">Delete</button>
                 </div>
             </td>
         </tr>
